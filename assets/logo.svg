@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="t d">
+<title id="t">Logo de la classe virtuelle de Madame Lanquetin</title><desc id="d">Un livre ouvert, une frise et une boussole.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3b43f"/><stop offset="1" stop-color="#ee715e"/></linearGradient></defs>
+<circle cx="90" cy="90" r="82" fill="#fff8e8" stroke="#17324d" stroke-width="7"/>
+<path d="M35 57c24-8 42-2 55 12v61c-16-13-34-17-55-8z" fill="#fff" stroke="#17324d" stroke-width="5" stroke-linejoin="round"/>
+<path d="M145 57c-24-8-42-2-55 12v61c16-13 34-17 55-8z" fill="#fff" stroke="#17324d" stroke-width="5" stroke-linejoin="round"/>
+<path d="M90 69v61" stroke="#17324d" stroke-width="5"/>
+<circle cx="90" cy="43" r="17" fill="url(#g)" stroke="#17324d" stroke-width="4"/>
+<path d="M90 31l5 12-5 12-5-12z" fill="#17324d"/>
+<path d="M48 101h28M104 101h28M48 112h20M112 112h20" stroke="#2f8878" stroke-width="5" stroke-linecap="round"/>
+</svg>
