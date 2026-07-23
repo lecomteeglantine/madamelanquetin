@@ -158,40 +158,68 @@
   }
 
   function setupMap(initial){
-    const select=$('#map-period');
-    select.innerHTML=D.mapSets.map(m=>`<option value="${m.id}" ${m.id===initial?'selected':''}>${m.title}</option>`).join('');
-    const stage=$('#history-map');
-    const projectBounds=(coords)=>{
-      if(!coords.length)return {minLat:-60,maxLat:75,minLng:-170,maxLng:180};
-      let minLat=Math.min(...coords.map(c=>c[0])),maxLat=Math.max(...coords.map(c=>c[0]));
-      let minLng=Math.min(...coords.map(c=>c[1])),maxLng=Math.max(...coords.map(c=>c[1]));
-      const latPad=Math.max((maxLat-minLat)*.28,6),lngPad=Math.max((maxLng-minLng)*.25,8);
-      minLat=Math.max(-85,minLat-latPad);maxLat=Math.min(85,maxLat+latPad);minLng=Math.max(-180,minLng-lngPad);maxLng=Math.min(180,maxLng+lngPad);
-      if(maxLat-minLat<18){const mid=(minLat+maxLat)/2;minLat=mid-9;maxLat=mid+9}
-      if(maxLng-minLng<24){const mid=(minLng+maxLng)/2;minLng=mid-12;maxLng=mid+12}
-      return {minLat,maxLat,minLng,maxLng};
+    const mapSets=[...D.mapSets];
+    if(!mapSets.some(m=>m.id==='front')){
+      mapSets.splice(1,0,{
+        id:'front',title:'Le Front populaire',legend:['Paris politique','Grèves ouvrières','Réformes sociales'],
+        layers:[
+          {label:'Printemps 1936',markers:[
+            {lat:48.8566,lng:2.3522,label:'Paris — victoire électorale du Front populaire'},
+            {lat:48.8352,lng:2.2417,label:'Boulogne-Billancourt — occupations d’usines, notamment chez Renault'}
+          ],lines:[]},
+          {label:'Juin 1936',markers:[
+            {lat:48.8523,lng:2.3106,label:'Hôtel Matignon, Paris — accords des 7 et 8 juin 1936'},
+            {lat:50.6292,lng:3.0573,label:'Nord industriel — mouvement de grèves et occupations d’usines'}
+          ],lines:[]},
+          {label:'Été 1936',markers:[
+            {lat:48.8566,lng:2.3522,label:'Paris — vote des congés payés et de la semaine de quarante heures'},
+            {lat:43.2965,lng:5.3698,label:'Marseille — départs en vacances rendus possibles par les congés payés'}
+          ],lines:[]}
+        ]
+      });
+    }
+    const views={
+      ww1:{asset:'assets/maps/europe.svg',bounds:{minLat:35,maxLat:61,minLng:-12,maxLng:33},alt:'Carte de l’Europe et de la Méditerranée'},
+      front:{asset:'assets/maps/france-algeria.svg',bounds:{minLat:30,maxLat:53,minLng:-10,maxLng:14},alt:'Carte de la France et de la Méditerranée occidentale'},
+      ww2:{asset:'assets/maps/world.svg',bounds:{minLat:-60,maxLat:82,minLng:-180,maxLng:180},alt:'Planisphère'},
+      cold:{asset:'assets/maps/world.svg',bounds:{minLat:-60,maxLat:82,minLng:-180,maxLng:180},alt:'Planisphère'},
+      decolo:{asset:'assets/maps/africa-asia.svg',bounds:{minLat:-42,maxLat:58,minLng:-25,maxLng:135},alt:'Carte de l’Afrique et de l’Asie'},
+      vrep:{asset:'assets/maps/france-algeria.svg',bounds:{minLat:30,maxLat:53,minLng:-10,maxLng:14},alt:'Carte de la France et de l’Algérie'}
     };
+    const select=$('#map-period');
+    const initialId=mapSets.some(m=>m.id===initial)?initial:mapSets[0].id;
+    select.innerHTML=mapSets.map(m=>`<option value="${m.id}" ${m.id===initialId?'selected':''}>${m.title}</option>`).join('');
+    const stage=$('#history-map');
     const renderLayer=(set,index)=>{
       const layer=set.layers[index];
-      const coords=[...layer.markers.map(m=>[m.lat,m.lng]),...layer.lines.flat()];
-      const b=projectBounds(coords);
-      const pos=([lat,lng])=>({x:8+(lng-b.minLng)/(b.maxLng-b.minLng)*84,y:9+(b.maxLat-lat)/(b.maxLat-b.minLat)*80});
-      const lines=layer.lines.map(line=>`<polyline points="${line.map(c=>{const p=pos(c);return `${p.x},${p.y}`}).join(' ')}" />`).join('');
-      const markers=layer.markers.map((m,n)=>{const p=pos([m.lat,m.lng]);return `<button class="local-map-marker" style="--map-x:${p.x}%;--map-y:${p.y}%" aria-label="Lieu ${n+1} : ${escapeHtml(m.label)}" data-map-label="${escapeHtml(m.label)}"><span>${n+1}</span></button>`}).join('');
-      stage.innerHTML=`<div class="local-map-stage" role="group" aria-label="Carte schématique locale : ${escapeHtml(set.title)}, couche ${escapeHtml(layer.label)}"><svg class="local-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="map-globe" d="M8 50 Q25 8 50 9 Q76 8 92 50 Q76 91 50 91 Q25 92 8 50Z"/><path class="map-grid" d="M8 50H92 M50 9V91 M18 29H82 M18 71H82 M29 14V86 M71 14V86"/>${lines}</svg>${markers}<div class="map-compass" aria-hidden="true">N ↑</div></div><p class="mini privacy-map-note">Carte schématique générée dans le navigateur : aucun fond cartographique ni traceur externe n’est chargé.</p><div id="map-live" class="sr-only" aria-live="polite"></div>`;
+      const view=views[set.id]||views.ww2;
+      const b=view.bounds;
+      const pos=([lat,lng])=>({x:(lng-b.minLng)/(b.maxLng-b.minLng)*100,y:(b.maxLat-lat)/(b.maxLat-b.minLat)*100});
+      const visible=([lat,lng])=>lat>=b.minLat&&lat<=b.maxLat&&lng>=b.minLng&&lng<=b.maxLng;
+      const lines=layer.lines.map(line=>{
+        const pts=line.filter(visible).map(c=>{const p=pos(c);return `${p.x.toFixed(2)},${p.y.toFixed(2)}`}).join(' ');
+        return pts?`<polyline points="${pts}" />`:'';
+      }).join('');
+      const markers=layer.markers.map((m,n)=>{
+        const p=pos([m.lat,m.lng]);
+        const offMap=!visible([m.lat,m.lng]);
+        if(offMap)return '';
+        return `<button class="local-map-marker" style="--map-x:${p.x.toFixed(2)}%;--map-y:${p.y.toFixed(2)}%" aria-label="Lieu ${n+1} : ${escapeHtml(m.label)}" data-map-label="${escapeHtml(m.label)}"><span>${n+1}</span></button>`;
+      }).join('');
+      stage.innerHTML=`<div class="local-map-stage" role="group" aria-label="${escapeHtml(view.alt)} : ${escapeHtml(set.title)}, couche ${escapeHtml(layer.label)}"><img class="local-map-background" src="${view.asset}" alt="${escapeHtml(view.alt)}"/><svg class="local-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${lines}</svg>${markers}<div class="map-compass" aria-hidden="true">N ↑</div></div><p class="mini privacy-map-note"><strong>Fond de repérage géographique :</strong> côtes et frontières contemporaines simplifiées. Les événements, fronts et lieux historiques sont ajoutés par-dessus. Toutes les ressources cartographiques sont hébergées dans le site ; aucun service de carte externe n’est contacté.</p><div id="map-live" class="sr-only" aria-live="polite"></div>`;
       $('#map-description').innerHTML=`<strong>${escapeHtml(layer.label)}</strong><ol>${layer.markers.map(m=>`<li>${escapeHtml(m.label)}</li>`).join('')}</ol>`;
       $$('.local-map-marker',stage).forEach(btn=>btn.addEventListener('click',()=>{$('#map-live').textContent=btn.dataset.mapLabel;btn.classList.add('selected');setTimeout(()=>btn.classList.remove('selected'),900)}));
       $$('.layer-btn').forEach((button,n)=>button.classList.toggle('active',n===index));
     };
     const loadSet=id=>{
-      const set=D.mapSets.find(m=>m.id===id)||D.mapSets[0];
+      const set=mapSets.find(m=>m.id===id)||mapSets[0];
       $('#map-title').textContent=set.title;
       $('#map-legend').innerHTML=set.legend.map(x=>`<span class="tag">${escapeHtml(x)}</span>`).join('');
       $('#layer-buttons').innerHTML=set.layers.map((l,i)=>`<button class="layer-btn ${i===0?'active':''}" data-layer="${i}">${escapeHtml(l.label)}</button>`).join('');
       $$('.layer-btn').forEach(b=>b.addEventListener('click',()=>renderLayer(set,Number(b.dataset.layer))));
       renderLayer(set,0);
     };
-    select.addEventListener('change',()=>loadSet(select.value));loadSet(initial);
+    select.addEventListener('change',()=>loadSet(select.value));loadSet(initialId);
   }
 
   function renderGames(){

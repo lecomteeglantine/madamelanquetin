@@ -28,3 +28,16 @@ body.dialog-open{overflow:hidden}
 .hero-art,.history-orbit,.hero-history-collage{display:none!important}
 .hero{padding-top:48px;padding-bottom:44px}
 @media(max-width:700px){.hero{padding-top:30px}.hero h1{font-size:clamp(2.35rem,11vw,3.6rem)}}
+
+/* Cartes géographiques locales — correctif juillet 2026 */
+#history-map{height:auto;min-height:550px;background:#dceff4}
+.local-map-stage{position:relative;width:100%;height:550px;overflow:hidden;border-radius:20px;background:#dceff4;border:2px solid rgba(23,50,77,.22);box-shadow:0 12px 28px rgba(23,50,77,.13)}
+.local-map-stage::before{display:none!important}
+.local-map-background{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;z-index:0}
+.local-map-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.local-map-lines polyline{fill:none;stroke:#d53f35;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 1px rgba(255,255,255,.9))}
+.local-map-marker{z-index:3;width:40px;height:40px;border:3px solid #fff;background:#17324d;color:#fff;box-shadow:0 5px 14px rgba(23,50,77,.4)}
+.local-map-marker:focus-visible{outline:4px solid #f3b43f;outline-offset:3px}
+.map-compass{z-index:4}
+.privacy-map-note{padding:10px 12px;margin-top:10px;background:#fff;border-radius:12px;border:1px solid rgba(23,50,77,.1);color:#40566a}
+@media(max-width:700px){#history-map{min-height:430px}.local-map-stage{height:430px}.local-map-marker{width:34px;height:34px}}
