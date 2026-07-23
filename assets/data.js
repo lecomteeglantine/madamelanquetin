@@ -964,9 +964,9 @@ window.HISTORY_DATA = {
         "Combat la montée vers la guerre",
         "Assassiné le 31 juillet 1914"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/jean-jaures.jpg",
+      "credit": "Nadar, vers 1890, domaine public / Musée de Bretagne",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Jaur%C3%A8s_par_Nadar.jpg"
     },
     {
       "id": "wilson",
@@ -982,9 +982,9 @@ window.HISTORY_DATA = {
         "Quatorze Points",
         "Projet de Société des Nations"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/woodrow-wilson.jpg",
+      "credit": "Woodrow Wilson Presidential Library Archives, aucune restriction connue",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Woodrow_Wilson_Portrait_(4472848637).jpg"
     },
     {
       "id": "blum",
@@ -1018,9 +1018,9 @@ window.HISTORY_DATA = {
         "Soutien parlementaire au gouvernement Blum",
         "Acteur du mouvement ouvrier"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/maurice-thorez.jpg",
+      "credit": "Auteur inconnu, 1936, domaine public / Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Thorez.jpg"
     },
     {
       "id": "daladier",
@@ -1037,9 +1037,9 @@ window.HISTORY_DATA = {
         "Accords de Munich en 1938",
         "Chef du gouvernement au début de la guerre en 1939"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/edouard-daladier.jpg",
+      "credit": "Agence Meurisse, 1924, domaine public / Gallica-BnF",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%C3%89douard_Daladier,_1924.jpg"
     },
     {
       "id": "degaulle",
@@ -1075,9 +1075,9 @@ window.HISTORY_DATA = {
         "Unification de la Résistance",
         "Arrêté à Caluire en juin 1943"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/jean-moulin.jpg",
+      "credit": "Studio Harcourt, 1937, domaine public / RMN",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Moulin_Harcourt_1937.jpg"
     },
     {
       "id": "churchill",
@@ -1111,9 +1111,9 @@ window.HISTORY_DATA = {
         "Invasion de la Pologne en 1939",
         "Génocide des Juifs et des Tsiganes"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/adolf-hitler.jpg",
+      "credit": "Auteur inconnu, 1933, domaine public / Archives d’État bulgares",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Adolf_Hitler_1933_Portrait.jpeg"
     },
     {
       "id": "truman",
@@ -1129,9 +1129,9 @@ window.HISTORY_DATA = {
         "Plan Marshall",
         "Début de la guerre froide"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/harry-truman.jpg",
+      "credit": "Harry S. Truman Library / NARA, vers 1947, domaine public",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Harry_S._Truman_Presidential_Portrait_(3x4_cropped).jpg"
     },
     {
       "id": "stalin",
@@ -1148,9 +1148,9 @@ window.HISTORY_DATA = {
         "Victoire soviétique contre l’Allemagne nazie",
         "Mise en place du bloc de l’Est"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/joseph-staline.jpg",
+      "credit": "Ivan Shagin / TASS, 1945–1949, domaine public",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Joseph_Stalin_official_portrait.jpg"
     },
     {
       "id": "kennedy",
@@ -1184,9 +1184,9 @@ window.HISTORY_DATA = {
         "Mur de Berlin",
         "Crise des missiles de Cuba"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/nikita-khrouchtchev.jpg",
+      "credit": "Warren K. Leffler / Library of Congress, 1960, domaine public",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Nikita_Khrushchev_1960_(cropped).jpg"
     },
     {
       "id": "gorbachev",
@@ -1202,9 +1202,9 @@ window.HISTORY_DATA = {
         "Glasnost",
         "Fin de la guerre froide"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/mikhail-gorbatchev.jpg",
+      "credit": "White House Photo Office, 1987, domaine public",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Mikhail_Gorbachev_1987.jpg"
     },
     {
       "id": "gandhi",
@@ -1239,9 +1239,9 @@ window.HISTORY_DATA = {
         "Guerre d’Indochine",
         "Figure communiste et nationaliste"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/ho-chi-minh.jpg",
+      "credit": "Auteur inconnu, vers 1946, domaine public / Báo Cà Mau",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_1946_and_signature_(cropped).jpg"
     },
     {
       "id": "nkrumah",
@@ -1257,9 +1257,9 @@ window.HISTORY_DATA = {
         "Panafricanisme",
         "Premier ministre puis président"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/kwame-nkrumah.jpg",
+      "credit": "The National Archives UK, licence OGL v1.0",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kwame_Nkrumah_Portrait,_The_National_Archives_UK.jpg"
     },
     {
       "id": "benbella",
@@ -1275,9 +1275,9 @@ window.HISTORY_DATA = {
         "Accords d’Évian et indépendance",
         "Président de 1963 à 1965"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/ahmed-ben-bella.jpg",
+      "credit": "République algérienne, domaine public ; retouche Pbrks",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9sident_Ahmed_Ben_Bella_(mono).jpg"
     },
     {
       "id": "simoneveil",
@@ -1294,9 +1294,9 @@ window.HISTORY_DATA = {
         "Loi sur l’IVG en 1975",
         "Première présidente du Parlement européen élu au suffrage universel"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/simone-veil.jpg",
+      "credit": "© Union européenne – Parlement européen ; recadrage",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Official_portrait_of_Simone_Veil_(cropped).jpg"
     },
     {
       "id": "mitterrand",
@@ -1312,9 +1312,9 @@ window.HISTORY_DATA = {
         "Abolition de la peine de mort",
         "Deux cohabitations"
       ],
-      "image": "",
-      "credit": "",
-      "creditUrl": ""
+      "image": "assets/images/francois-mitterrand.jpg",
+      "credit": "Gino Zamboni / Communautés européennes, CC BY 4.0 ; recadrage",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Mitterrand,_1984.jpg"
     }
   ],
   "newspapers": [
