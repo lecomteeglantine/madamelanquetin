@@ -22,13 +22,9 @@ body.dialog-open{overflow:hidden}
 @media(max-width:700px){.local-map-stage{height:420px}.local-map-marker{width:34px;height:34px}.access-panel{max-height:90vh;overflow:auto}.setting-row{align-items:flex-start;flex-direction:column}.footer-privacy{max-width:none}}
 
 
-/* Accueil : galerie historique compacte remplaçant l'ancienne illustration abstraite */
-.hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(330px,.65fr);gap:38px}
-.hero-history-collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:145px 145px;gap:12px;align-self:center;max-width:430px;justify-self:end;width:100%;transform:rotate(1deg)}
-.hero-photo{position:relative;margin:0;overflow:hidden;border-radius:18px;background:#e9e1d1;box-shadow:0 10px 24px rgba(23,50,77,.16);border:5px solid #fff;min-width:0}
-.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04)}
-.hero-photo figcaption{position:absolute;left:8px;bottom:8px;padding:4px 8px;border-radius:999px;background:rgba(19,43,66,.88);color:#fff;font-size:.72rem;font-weight:850;line-height:1.2}
-.hero-photo-tall{grid-row:1 / span 2}
-.hero-photo-wide{display:none}
-@media(max-width:1000px){.hero-history-collage{max-width:620px;justify-self:start;grid-template-columns:repeat(3,1fr);grid-template-rows:170px;transform:none}.hero-photo-tall{grid-row:auto}.hero-photo-wide{display:none}}
-@media(max-width:700px){.hero-history-collage{grid-template-columns:1fr 1fr;grid-template-rows:145px 145px;max-width:none}.hero-photo-tall{grid-row:1 / span 2}.hero-history-collage .hero-photo:nth-child(3){display:none}}
+/* Correctif définitif accueil — suppression de l’ancienne illustration abstraite */
+.hero-grid{grid-template-columns:1fr!important;max-width:1180px}
+.hero-grid>div:first-child{max-width:980px}
+.hero-art,.history-orbit,.hero-history-collage{display:none!important}
+.hero{padding-top:48px;padding-bottom:44px}
+@media(max-width:700px){.hero{padding-top:30px}.hero h1{font-size:clamp(2.35rem,11vw,3.6rem)}}

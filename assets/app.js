@@ -245,7 +245,7 @@
   function init(){setupNav();setupSearch();setupAccessibility();
     if(page==='home')renderHome();if(page==='period')renderPeriod();if(page==='periods')renderPeriods();if(page==='people')renderPeople();if(page==='timeline')renderTimelineMaps();if(page==='games')renderGames();if(page==='method')renderMethod();if(page==='media')renderMedia();if(page==='progress')renderProgress();if(page==='sources')renderSources();
     setupExternalLinks();
-    if('serviceWorker' in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+    if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(regs=>Promise.all(regs.map(r=>r.unregister()))).catch(()=>{});}if('caches' in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('lanquetin-')).map(k=>caches.delete(k)))).catch(()=>{});}
   }
   document.addEventListener('DOMContentLoaded',init);
 })();
