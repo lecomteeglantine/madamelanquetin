@@ -1,4 +1,15 @@
-1. Déposer index.html, service-worker.js et reset-cache.html à la racine du dépôt GitHub.
-2. Déposer app.js et style.css dans le dossier assets du dépôt.
-3. Ouvrir une seule fois : https://lecomteeglantine.github.io/madamelanquetin/reset-cache.html
-4. La page efface l’ancienne version en cache puis ouvre automatiquement l’accueil corrigé.
+CORRECTIF DES CARTES
+
+Ce dossier remplace le faux globe schématique par de vrais fonds cartographiques locaux.
+
+À déposer à la racine du dépôt GitHub :
+- frises-cartes.html
+- le dossier assets (il contient app.js, style.css et le nouveau dossier maps)
+
+Sur GitHub : Add file > Upload files, puis glisser frises-cartes.html ET le dossier assets.
+Valider avec Commit changes.
+
+Ouvrir ensuite :
+https://lecomteeglantine.github.io/madamelanquetin/frises-cartes.html?v=2
+
+Les fonds viennent de Natural Earth (données cartographiques du domaine public), simplifiés et intégrés localement au site.
